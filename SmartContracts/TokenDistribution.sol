@@ -1,9 +1,9 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: GPL-3.0
 
 pragma solidity >=0.7.0 <0.9.0;
 
 
-contract TokenDistribution{
+contract Thirdparty{
 
     struct Catalog {
         string AssetHash;
@@ -11,6 +11,7 @@ contract TokenDistribution{
 
 
     }
+
 
     Catalog[] public catalog;
     mapping(string => string) public AssetMetaDataHashToAssetHash;
@@ -30,21 +31,6 @@ contract TokenDistribution{
         owner = payable(msg.sender);
     }
 
-    /*
-    Which function is called, fallback() or receive()?
-
-           send Ether
-               |
-         msg.data is empty?
-              / \
-            yes  no
-            /     \
-receive() exists?  fallback()
-         /   \
-        yes   no
-        /      \
-    receive()   fallback()
-    */
 
     // Function to receive Ether. msg.data must be empty
     receive() external payable {}
